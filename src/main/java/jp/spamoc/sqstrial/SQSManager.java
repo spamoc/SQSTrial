@@ -27,12 +27,19 @@ public class SQSManager extends AbstractSQSManager{
         ReceiveMessageRequest receiveMsgReq = new ReceiveMessageRequest(queueUrl);
         receiveMsgReq.setMaxNumberOfMessages(maxNumberOfMessages);
         ReceiveMessageResult result = client.receiveMessage(receiveMsgReq);
+        if(result.getMessages().size() == 0){
+            return null;
+        }
+
         return result.getMessages();
     }
     
     public Message receiveMessage(String queue){
         String queueUrl = createQueueUrl(queue);
         ReceiveMessageResult result = client.receiveMessage(queueUrl);
+        if(result.getMessages().size() == 0){
+            return null;
+        }
         return result.getMessages().get(0);
     }
     

@@ -1,7 +1,5 @@
 package jp.spamoc.sqstrial;
 
-import java.util.Properties;
-
 import com.amazonaws.services.sqs.model.Message;
 
 
@@ -13,11 +11,6 @@ import com.amazonaws.services.sqs.model.Message;
 public class App 
 {
     public static void main( String[] args ){
-        Properties systemSettings = System.getProperties();
-        systemSettings.put("http.proxyHost", "www-gw");
-        systemSettings.put("http.proxyPort", "80");
-        System.setProperties(systemSettings); 
-        
         if(args.length == 0){
             System.out.println("usage: sqstrial [send {message}] or [receive]");
             return;
