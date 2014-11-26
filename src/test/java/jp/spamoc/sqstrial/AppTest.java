@@ -1,4 +1,4 @@
-package com.example;
+package jp.spamoc.sqstrial;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
